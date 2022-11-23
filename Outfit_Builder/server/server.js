@@ -6,12 +6,12 @@ const port = 8000
 require('./config/mongoose.config')
 
 app.use(cors(
-    {origin: 'http://localhost:3000'}
+    { origin: 'http://localhost:3000' }
 ))
 app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
 require('./config/mongoose.config')
-require('./routes/outfit_builder.routes')(app)
+require('./routes/user.routes')(app)
 
-app.listen(port, ()=> console.log(`Listening on port: ${port}`))
+app.listen(port, () => console.log(`Listening on port: ${port}`))
