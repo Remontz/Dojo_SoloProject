@@ -15,7 +15,7 @@ const UserController = {
             })
     },
     //READ
-    getAll: () => {
+    getAll: (req, res) => {
         console.log("Get All Users")
         User
             .find({})
@@ -26,7 +26,7 @@ const UserController = {
                 res.status(404).json({ msg: "An error occurred attempting to retrieve all users", error: err })
             })
     },
-    getOne: () => {
+    getOne: (req, res) => {
         console.log("Get One User")
         User
             .findOne({ _id: req.params.id })
@@ -38,7 +38,7 @@ const UserController = {
             })
     },
     //UPDATE
-    update: () => {
+    update: (req, res) => {
         console.log("Update User")
         User
             .findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
@@ -51,7 +51,7 @@ const UserController = {
     },
 
     //DELETE
-    delete: () => {
+    delete: (req, res) => {
         console.log("Delete User")
         User
             .findOneAndDelete({ _id: req.params.id })
